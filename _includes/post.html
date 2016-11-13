@@ -1,0 +1,21 @@
+<div class="prose">
+
+  {{post.body}}
+
+</div>
+
+{% if parent.slug == "notes" %}
+    <div class="mt-4 mb-4 pl-4 pr-4">
+        <p class="text-smaller text-gray-light">Posted {{post.date | date: "%b %d, %Y"}}</p>
+    </div>
+{% endif %}
+
+<div class="mt-sm-4 mb-sm-4">
+    <ul class="list-unstyled mt-sm-2">
+        {% for tag in taxonomy.topics %}
+            <li class="display-inline-block mb-sm-1">
+                <a class="btn btn-green" href="{{tag.url}}">{{tag.value}}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
